@@ -1,0 +1,32 @@
+import json
+import random
+import time
+import os
+
+BUS_IDS = ["Bus_202", "Bus_203", "Bus_204", "Bus_205", "Bus_206"]
+LAT_RANGE = (28.40, 28.50)
+LON_RANGE = (77.00, 77.10)
+JSON_PATH = os.path.join(os.path.dirname(__file__), "..", "bus_locations.json")
+
+def random_coordinate(lat_range, lon_range):
+    lat = round(random.uniform(*lat_range), 4)
+    lon = round(random.uniform(*lon_range), 4)
+    return lat, lon
+
+def generate_bus_locations():
+    return {
+        bus_id: {"lat": lat, "lon": lon}
+        for bus_id, (lat, lon) in zip(BUS_IDS, [random_coordinate(LAT_RANGE, LON_RANGE) for _ in BUS_IDS])
+    }
+
+def main():
+    print("Simulated Bus Location Generator started. Press Ctrl+C to stop.")
+    while True:
+        bus_locations = generate_bus_locations()
+        with open(JSON_PATH, "w") as f:
+            json.dump(bus_locations, f, indent=4)
+        print("Updated bus locations:", bus_locations)
+        time.sleep(5)
+
+if __name__ == "__main__":
+    main()
