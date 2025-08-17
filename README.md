@@ -33,20 +33,8 @@ bus-location-generator/
 │
 ├── bus_locations.json
 ├── README.md
-└── screenshots/
-```
-
-## Example Output
-
-```json
-{
-    "Bus_202": {"lat": 28.4621, "lon": 77.0652},
-    "Bus_203": {"lat": 28.4194, "lon": 77.0702},
-    "Bus_204": {"lat": 28.4896, "lon": 77.0931},
-    "Bus_205": {"lat": 28.4281, "lon": 77.0228},
-    "Bus_206": {"lat": 28.4753, "lon": 77.0345}
-}
-```
+  
+ 
 
  
 ## License
